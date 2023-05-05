@@ -17,7 +17,6 @@ from rtwcli.command import CommandExtension
 
 
 class BaseCommand(CommandExtension):
-
     def __init__(self, verbs_group):
         super().__init__()
         self.verbs_group = verbs_group
