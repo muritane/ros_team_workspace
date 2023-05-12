@@ -12,11 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from pathlib import Path
 from rtwcli.verb import VerbExtension
+from rtw_cmds.utils import ScriptExecutor
 
 
 class CreateVerb(VerbExtension):
     """Create a new ROS package."""
 
     def main(self, *, args):
-        print("Not implemented yet")
+        print("Create a new ROS package")
+        script_exec = ScriptExecutor()
+        script_path = Path("/home/daniela/ros_team_workspace/scripts/create-new-package.bash")
+        script_exec.execute(script_path, "foo", "foo")
