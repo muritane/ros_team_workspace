@@ -74,7 +74,7 @@ class CreateVerb(VerbExtension):
             maintainer_info_choices.append(
                 input_utils.Choice(
                     f"git: {maintainer_name_git} <{maintainer_email_git}>",
-                    lambda: (maintainer_name_git, maintainer_email_git),
+                    lambda name=maintainer_name_git, email=maintainer_email_git: (name, email),
                 )
             )
 
@@ -86,14 +86,14 @@ class CreateVerb(VerbExtension):
         ]
 
         cwd = os.getcwd()
-        cwd_choice = input_utils.Choice(f"current directory: {cwd}", lambda: cwd)
+        cwd_choice = input_utils.Choice(f"current directory: {cwd}", lambda cwd=cwd: cwd)
         destination_choices.append(cwd_choice)
 
         ros_ws = os.environ.get("ROS_WS", None)
         ros_ws_src = None if ros_ws is None else os.path.join(ros_ws, "src")
         if ros_ws_src is not None:
             ros_ws_src_choice = input_utils.Choice(
-                f"src directory: {ros_ws_src}", lambda: ros_ws_src
+                f"src directory: {ros_ws_src}", lambda ros_ws_src=ros_ws_src: ros_ws_src
             )
             destination_choices.append(ros_ws_src_choice)
 
@@ -122,7 +122,7 @@ class CreateVerb(VerbExtension):
         licenses_choices = [input_utils.Choice("user input", self.get_license_from_input)]
         licenses = [entry.spdx for _, entry in ament_copyright.get_licenses().items()]
         licenses_choices += [
-            input_utils.Choice(f"{license}", lambda license=license: f"{license}")
+            input_utils.Choice(f"{license}", lambda license=license: license)
             for license in licenses
         ]
         return input_utils.get_user_choice_from_choices(licenses_choices).value()
@@ -134,9 +134,7 @@ class CreateVerb(VerbExtension):
         print(f"ros2_command_available: {ros2_command_available}")
 
         if not ros2_command_available:
-            print_error(
-                "The 'ros2' command is not available. Did you source your workspace by executing _\"<ws_alias>\"?"
-            )
+            print_error("The 'ros2' command is not available. Did you source your workspace?")
             return
 
         print_info("Where to create the package?")
