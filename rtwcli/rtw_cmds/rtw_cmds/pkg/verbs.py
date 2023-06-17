@@ -141,8 +141,7 @@ class CreateVerb(VerbExtension):
         destination = self.get_destination_path()
         print_info(f"The package '{args.package_name}' will be created in '{destination}'")
 
-        print()
-        print_info("What type of package you want to create?")
+        print_info("\nWhat type of package you want to create?")
         pkg_type = self.get_pkg_type()
         pkg_type_to_print = {
             "standard": "Standard package",
@@ -152,25 +151,24 @@ class CreateVerb(VerbExtension):
         print_info(f"{pkg_type_to_print} '{args.package_name}' will be created in '{destination}'")
         print_error("TODO: implement the use of pkg_type")
 
-        print()
-        print_info("Who will maintain the package you want to create? Please provide the info.")
+        print_info("\nWho will maintain the package you want to create? Please provide the info.")
         maintainer_name, maintainer_email = self.get_maintainer_info()
         print_info(
-            f"The name '{maintainer_name}' and email address '{maintainer_email}' will be used as maintainer info!"
+            f"The name '{maintainer_name}' and email address '{maintainer_email}' will be used as "
+            "maintainer info!"
         )
 
-        print()
-        print_info("How do you want to license your package?")
+        print_info("\nHow do you want to license your package?")
         pkg_license = self.get_license()
         print_info(f"The license '{pkg_license}' will be used! ($)")
 
-        print()
-        print_info("Please choose your package build type:")
+        print_info("\nPlease choose your package build type:")
         build_type = self.get_build_type()
 
-        print()
         print_info(
-            f"ATTENTION: Creating '{pkg_type}' package '{args.package_name}' in '{destination}' with description '{args.description}', license '{pkg_license}', build type '{build_type}' and maintainer '{maintainer_name} <{maintainer_email}>'"
+            f"\nATTENTION: Creating '{pkg_type}' package '{args.package_name}' in '{destination}' "
+            f"with description '{args.description}', license '{pkg_license}', build type "
+            f"'{build_type}' and maintainer '{maintainer_name} <{maintainer_email}>'"
         )
         print("If correct press <ENTER>, otherwise <CTRL>+C and start the script again.")
         input()
