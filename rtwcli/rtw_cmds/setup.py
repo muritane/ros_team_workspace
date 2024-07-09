@@ -51,7 +51,7 @@ The package provides the commands for the ROS Team Workspace command line tools.
             "enter = rtw_cmds.docker.verbs:EnterVerb",
         ],
         "rtw_cmds.pkg.verbs": [
-            "create = rtw_cmds.pkg.verbs:CreateVerb",
+            "setup-robot-bringup = rtw_cmds.pkg.verbs:SetupRobotBringUpVerb",
         ],
         "rtw_cmds.workspace.verbs": [
             "create = rtw_cmds.workspace.create_verb:CreateVerb",
