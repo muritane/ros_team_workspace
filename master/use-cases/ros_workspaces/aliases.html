@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTW Aliases &mdash; ROS Team Workspace Documentation: Jazzy Aug 2026 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon-bg.png"/>
+    <link rel="canonical" href="https://rtw.b-robotized.com/jazzy//jazzy/use-cases/ros_workspaces/aliases.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operating System" href="../../operating_system/index.html" />
+    <link rel="prev" title="ros2_control: Setup robot’s hardware package" href="../ros2_control/setup_robot_hardware_interface.html" />
+ 
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-Dt1J8dX5wKzgXoJvAr1nJ.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/jazzy.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rtwcli/index.html">RTW CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guidelines/index.html">Guidelines</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Use Cases (ROS)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../operating_system/create_setup_workspace.html">Setup a new Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_packages/configure_repository.html">Configure Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_packages/create_package.html">Create New Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_packages/setup_ikfast_plugin.html">Setup IKFast Kinematics Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_packages/setup_robot_bringup_package.html">Setup robot bringup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_packages/setup_robot_description_package.html">Setup robot description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_packages/setup_robot_moveit_package.html">Setup Robot MoveIt Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_control/setup_controller.html">ros2_control: Setup controller package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_control/setup_robot_hardware_interface.html">ros2_control: Setup robot’s hardware package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RTW Aliases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-rtw-aliases">Standard RTW Aliases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#explanation-of-standard-aliases">Explanation of Standard Aliases</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#entering-workspace-folders">Entering Workspace Folders</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#installing-dependencies">Installing dependencies</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#building-packages-in-workspace">Building Packages in Workspace</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#executing-package-tests">Executing Package Tests</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#executing-multiple-commands">Executing Multiple Commands</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#cleaning-workspace">Cleaning Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#zenoh-router-networking">Zenoh Router (Networking)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ros-2-daemon-management">ROS 2 Daemon Management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-your-own-aliases">Defining Your Own Aliases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../operating_system/index.html">Operating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ROS Team Workspace Documentation: Jazzy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Use Cases (ROS)</a></li>
+      <li class="breadcrumb-item active">RTW Aliases</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/b-robotized/ros_team_workspace/blob/master//docs/use-cases/ros_workspaces/aliases.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rtw-aliases">
+<h1>RTW Aliases<a class="headerlink" href="#rtw-aliases" title="Permalink to this heading"></a></h1>
+<section id="standard-rtw-aliases">
+<span id="uc-aliases"></span><h2>Standard RTW Aliases<a class="headerlink" href="#standard-rtw-aliases" title="Permalink to this heading"></a></h2>
+<p>Standard RTW aliases are configured out-of-the-box and they enable you to use the same command independently of the workspace you are in and help you hide <code class="docutils literal notranslate"><span class="pre">colcon</span></code> complexities and minimize errors when interacting with it.
+The aliases set for each workspace (see <a class="reference internal" href="../../tutorials/managing_multiple_workspaces.html#tutorial-managing-multiple-workspaces"><span class="std std-ref">ṁanaging multiple workspaces</span></a>) setup environment variables so that following aliases can interact with that specific workspace.</p>
+<section id="explanation-of-standard-aliases">
+<h3>Explanation of Standard Aliases<a class="headerlink" href="#explanation-of-standard-aliases" title="Permalink to this heading"></a></h3>
+<p>The standard aliases are callable from any folder as long as a workspace is sourced using <code class="docutils literal notranslate"><span class="pre">_&lt;workspace_name&gt;</span></code> alias.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To make this reading short, Dr. Denis’ favorite aliases are <code class="docutils literal notranslate"><span class="pre">cb</span></code>, <code class="docutils literal notranslate"><span class="pre">ca</span></code> and <code class="docutils literal notranslate"><span class="pre">crm</span></code> - simply start with using those.</p>
+</div>
+<section id="entering-workspace-folders">
+<h4>Entering Workspace Folders<a class="headerlink" href="#entering-workspace-folders" title="Permalink to this heading"></a></h4>
+<dl class="simple">
+<dt>rosd [&lt;package_name&gt;]</dt><dd><p>Enter the root directory of the ROS workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS</span></code>
+If you add argument <code class="docutils literal notranslate"><span class="pre">&lt;package_name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">rosd</span></code> enters the source folder of that package.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+<dt>rosds</dt><dd><p>Enter <code class="docutils literal notranslate"><span class="pre">src</span></code> directory of the ROS workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS/src</span></code></p>
+</dd>
+<dt>rosdb</dt><dd><p>Enter <code class="docutils literal notranslate"><span class="pre">build</span></code> directory of the ROS workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS/build</span></code></p>
+</dd>
+<dt>rosdi</dt><dd><p>Enter <code class="docutils literal notranslate"><span class="pre">install</span></code> directory of the ROS workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS/install</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="installing-dependencies">
+<h4>Installing dependencies<a class="headerlink" href="#installing-dependencies" title="Permalink to this heading"></a></h4>
+<dl class="simple" id="uc-aliases-dependencies">
+<dt>rosdep_prep</dt><dd><p>Updating the system and <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> references before installing dependencies.</p>
+</dd>
+<dt>rosdepi</dt><dd><p>Installing dependencies for the packages in <code class="docutils literal notranslate"><span class="pre">$ROS_WS/src</span></code> folder.
+Makes the <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> command shorter and simpler to use: <code class="docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">-i</span> <span class="pre">--from-paths</span> <span class="pre">\$ROS_WS/src</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="building-packages-in-workspace">
+<h4>Building Packages in Workspace<a class="headerlink" href="#building-packages-in-workspace" title="Permalink to this heading"></a></h4>
+<p>Every alias has optional package names. If none is provided the whole workspace is built.</p>
+<dl class="simple">
+<dt>cb [&lt;package1_name&gt;, &lt;package2_name&gt;]</dt><dd><p>Building named packages or the whole workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span> <span class="pre">--symlink-install</span> <span class="pre">--cmake-args</span> <span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span></code>.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+<dt>cbup &lt;package1_name&gt;</dt><dd><p>Building all packages up to the named packages (build all dependencies).
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span> <span class="pre">--symlink-install</span> <span class="pre">--cmake-args</span> <span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span> <span class="pre">--packages-up-to</span></code>.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+<dt>cbd [&lt;package1_name&gt;, &lt;package2_name&gt;]</dt><dd><p>Building named packages or the whole workspace as <em>Debug</em> build type.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span> <span class="pre">--symlink-install</span> <span class="pre">--cmake-args</span> <span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code>.</p>
+</dd>
+<dt>cbr [&lt;package1_name&gt;, &lt;package2_name&gt;]</dt><dd><p>Building named packages or the whole workspace as <em>Release</em> build type.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span> <span class="pre">--symlink-install</span> <span class="pre">--cmake-args</span> <span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="executing-package-tests">
+<h4>Executing Package Tests<a class="headerlink" href="#executing-package-tests" title="Permalink to this heading"></a></h4>
+<p>Every alias has optional package names. If none is provided the whole workspace is built.</p>
+<dl class="simple">
+<dt>ct [&lt;package1_name&gt;, &lt;package2_name&gt;]</dt><dd><p>Testing named packages or the whole workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">test</span></code>.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+<dt>ctup &lt;package_name&gt;</dt><dd><p>Testing named packages up to the named package (build all dependencies).
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">test</span> <span class="pre">--packages-up-to</span></code>.</p>
+</dd>
+<dt>ctres &lt;package_name&gt;</dt><dd><p>Get test results for the whole workspace or a package. If using package, the output will be <code class="docutils literal notranslate"><span class="pre">grep</span></code>-processed to filter-out the package you are looking for.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">test-result</span> <span class="pre">--all</span></code>
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+</dl>
+</section>
+<section id="executing-multiple-commands">
+<h4>Executing Multiple Commands<a class="headerlink" href="#executing-multiple-commands" title="Permalink to this heading"></a></h4>
+<p>Every alias has optional package names. If none is provided the whole workspace is built.</p>
+<dl class="simple">
+<dt>ca [&lt;package1_name&gt;, &lt;package2_name&gt;]</dt><dd><p>Build, test and show test results for the named packages or the whole workspace.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+<dt>caup &lt;package_name&gt;</dt><dd><p>Build, test and show test results for the package and all its dependencies.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+</dl>
+</section>
+<section id="cleaning-workspace">
+<h4>Cleaning Workspace<a class="headerlink" href="#cleaning-workspace" title="Permalink to this heading"></a></h4>
+<dl class="simple">
+<dt>crm [&lt;package1_name&gt;, &lt;package2_name&gt;]</dt><dd><p>Remove <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code> and <code class="docutils literal notranslate"><span class="pre">install</span></code> folders for the workspace or corresponding sub-folders for specific packages.
+<em>Auto-completion for all build ROS 2 packages is available.</em></p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="zenoh-router-networking">
+<h3>Zenoh Router (Networking)<a class="headerlink" href="#zenoh-router-networking" title="Permalink to this heading"></a></h3>
+<p>When using <code class="docutils literal notranslate"><span class="pre">rmw_zenoh_cpp</span></code> as middleware, starting the Zenoh router with the correct configuration is critical. RTW provides a dedicated alias for this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rtw-zenoh-router<span class="w"> </span><span class="o">[</span>IP_ADDRESS<span class="o">]</span>
+</pre></div>
+</div>
+<p>This alias simplifies starting the <code class="docutils literal notranslate"><span class="pre">rmw_zenohd</span></code> daemon and handles dynamic endpoint routing:</p>
+<ul class="simple">
+<li><p><strong>Local-only:</strong> <code class="docutils literal notranslate"><span class="pre">rtw-zenoh-router</span></code> starts a local standalone router in <code class="docutils literal notranslate"><span class="pre">listen</span></code> mode.</p></li>
+<li><p><strong>Connected:</strong> <code class="docutils literal notranslate"><span class="pre">rtw-zenoh-router</span> <span class="pre">192.168.28.28</span></code> automatically exports the required TCP endpoint configuration (<code class="docutils literal notranslate"><span class="pre">connect/endpoints=[&quot;tcp/&lt;IP&gt;:7447&quot;]</span></code>) before starting the router, so your local ROS 2 network successfully bridges to the target device.</p></li>
+</ul>
+<p>For a full breakdown of the environment setup for <code class="docutils literal notranslate"><span class="pre">zenoh</span></code>, see the <a class="reference internal" href="../../guidelines/zenoh_crash_course.html#zenoh-crash-course"><span class="std std-ref">Zenoh Crash Course</span></a>.</p>
+<section id="ros-2-daemon-management">
+<span id="uc-aliases-ros2-daemon"></span><h4>ROS 2 Daemon Management<a class="headerlink" href="#ros-2-daemon-management" title="Permalink to this heading"></a></h4>
+<p>RTW includes a wrapper for the standard <code class="docutils literal notranslate"><span class="pre">ros2</span></code> CLI commands that automatically manages the ROS 2 daemon based on your active workspace configuration.</p>
+<dl>
+<dt>ros2 &lt;command&gt;</dt><dd><p>Automatically appends the <code class="docutils literal notranslate"><span class="pre">--no-daemon</span></code> flag to relevant ROS 2 CLI commands (<code class="docutils literal notranslate"><span class="pre">topic</span></code>, <code class="docutils literal notranslate"><span class="pre">node</span></code>, <code class="docutils literal notranslate"><span class="pre">service</span></code>, <code class="docutils literal notranslate"><span class="pre">param</span></code>, <code class="docutils literal notranslate"><span class="pre">interface</span></code>, <code class="docutils literal notranslate"><span class="pre">lifecycle</span></code>) to prevent daemon-related discovery when, for example, using <code class="docutils literal notranslate"><span class="pre">zenoh</span></code> as the middleware implementation.</p>
+<p><strong>Trigger Conditions:</strong></p>
+<ul class="simple">
+<li><p>The environment variable <code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> is set to <code class="docutils literal notranslate"><span class="pre">rmw_zenoh_cpp</span></code>.</p></li>
+<li><p>OR the environment variable <code class="docutils literal notranslate"><span class="pre">RTW_NO_DAEMON</span></code> is set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>AND the user hasn’t already passed the <code class="docutils literal notranslate"><span class="pre">--no-daemon</span></code> flag manually in the command.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can set workspace-specific environment variables like <code class="docutils literal notranslate"><span class="pre">RMW_IMPLEMENTATION</span></code> or <code class="docutils literal notranslate"><span class="pre">RTW_NO_DAEMON</span></code> directly in your workspace’s configuration. For more details, refer to the <a class="reference internal" href="../../tutorials/managing_multiple_workspaces.html#tutorial-managing-multiple-workspaces"><span class="std std-ref">Managing Multiple Workspaces</span></a> tutorial.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="defining-your-own-aliases">
+<h2>Defining Your Own Aliases<a class="headerlink" href="#defining-your-own-aliases" title="Permalink to this heading"></a></h2>
+<p><strong>TBD</strong></p>
+<p>Idea: sharing aliases with your team that are very specific for your use-cases.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../ros2_control/setup_robot_hardware_interface.html" class="btn btn-neutral float-left" title="ros2_control: Setup robot’s hardware package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../operating_system/index.html" class="btn btn-neutral float-right" title="Operating System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, b»robotized group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dd><a href="aliases.html">Master (Jazzy, Kilted, Rolling)</a></dd>
+    </dl>
+    <dl>
+<!--       <dt>ROS Team Workspace - Foxy</dt> -->
+   </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
